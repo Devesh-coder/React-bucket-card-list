@@ -4,13 +4,15 @@ import { useContext } from 'react'
 import CardContext from '../context/CardContext'
 
 function BucketList() {
-	const { items } = useContext(CardContext)
+	const { items, isLoading } = useContext(CardContext)
 
-	if (!items && items.length === 0) {
+	if (!isLoading && !items && items.length === 0) {
 		return <p>No List item</p>
 	}
 
-	return (
+	return isLoading ? (
+		<h3>Loading ...</h3>
+	) : (
 		<div>
 			{items.map((item) => (
 				<BucketItem key={item.id} item={item} />

@@ -1,44 +1,24 @@
 import { createContext } from 'react'
 import { v4 as uuidV4 } from 'uuid'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const CardContext = createContext()
 
 export const CardProvider = ({ children }) => {
-	const [items, setItems] = useState([
-		{
-			id: 1,
-			title: 'Entertainment Videos',
-			cards: [
-				{
-					rank: 1,
-					topic: 'XYZ1',
-					link: <a href='https://www.youtube.com'> Youtube</a>,
-				},
-				{
-					rank: 2,
-					topic: 'XYZ2',
-					link: <a href='https://www.youtube.com'> Youtube</a>,
-				},
-			],
-		},
-		{
-			id: 2,
-			title: 'Educational Videos',
-			cards: [
-				{
-					rank: 1,
-					topic: 'EdV 1',
-					link: <a href='https://www.youtube.com'> Youtube</a>,
-				},
-				{
-					rank: 2,
-					topic: 'Edv 2',
-					link: <a href='https://www.youtube.com'> Youtube</a>,
-				},
-			],
-		},
-	])
+	const [isLoading, setIsLoading] = useState([true])
+	const [items, setItems] = useState([])
+
+	useEffect(() => {
+		fetchData()
+	}, [])
+
+	// Fetch Data
+	const fetchData = async () => {
+		const response = await fetch('items')
+		const data = await response.json()
+		setItems(data)
+		setIsLoading(false)
+	}
 
 	const [cardEdit, setCardEdit] = useState({
 		item: {},
@@ -124,6 +104,7 @@ export const CardProvider = ({ children }) => {
 				cardEdit,
 				updateCard,
 				updateBucket,
+				isLoading,
 			}}
 		>
 			{children}
