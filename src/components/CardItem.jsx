@@ -9,7 +9,7 @@ function CardItem({ card, item }) {
 	return (
 		<Card>
 			<div className='card-detail'>
-				<p>{card.topic}</p>
+				<p className='card-topic'>{card.topic}</p>
 				<p className='link'> {card.link}</p>
 			</div>
 			<button className='close' onClick={() => deleteCard(item.id, card.rank)}>
