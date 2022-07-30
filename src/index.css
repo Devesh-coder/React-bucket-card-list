@@ -1,13 +1,78 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.bucket {
+	width: 60%;
+	margin: auto;
+	border: 1px solid #000000;
+	margin-top: 50px;
+	/* position: relative; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bucket h2 {
+	text-align: center;
+}
+
+.card {
+	width: 70%;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 0.5px solid blue;
+	position: relative;
+}
+
+.close {
+	background-color: white;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 15%;
+}
+
+.bucket-header {
+	position: relative;
+}
+
+.header-edit {
+	position: absolute;
+	right: 6vw;
+}
+
+.edit {
+	background-color: white;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	position: absolute;
+	right: 30px;
+	top: 15%;
+}
+
+.form-data {
+	width: 50%;
+	margin: auto;
+	margin-bottom: 15px;
+	text-align: center;
+	margin-left: 10vw;
+}
+
+.overall-topic {
+	padding-bottom: 20px;
+}
+
+.form-submit {
+	background-color: blue;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 4px;
+	color: white;
+	font-weight: 600;
+	position: absolute;
+	right: 8vw;
+	bottom: 4vh;
+}
+
+.form {
+	position: relative;
 }
