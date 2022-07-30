@@ -5,20 +5,53 @@ import { useState, useEffect } from 'react'
 const CardContext = createContext()
 
 export const CardProvider = ({ children }) => {
-	const [isLoading, setIsLoading] = useState([true])
-	const [items, setItems] = useState([])
+	// const [isLoading, setIsLoading] = useState([true])
+	const [items, setItems] = useState([
+		{
+			id: 1,
+			title: 'Entertainment Videos',
+			cards: [
+				{
+					rank: 1,
+					topic: 'Entertainment video 1',
+					link: <a href='www.youtube.com'> Youtube</a>,
+				},
+				{
+					rank: 2,
+					topic: 'Entertainment video 2',
+					link: <a href='www.youtube.com'> Youtube</a>,
+				},
+			],
+		},
+		{
+			id: 2,
+			title: 'Educational Videos',
+			cards: [
+				{
+					rank: 1,
+					topic: 'Creative Vdeo',
+					link: <a href='www.youtube.com'> Youtube</a>,
+				},
+				{
+					rank: 2,
+					topic: 'Educating Video',
+					link: <a href='www.youtube.com'> Youtube</a>,
+				},
+			],
+		},
+	])
 
-	useEffect(() => {
-		fetchData()
-	}, [])
+	// useEffect(() => {
+	// 	fetchData()
+	// }, [])
 
 	// Fetch Data
-	const fetchData = async () => {
-		const response = await fetch('items')
-		const data = await response.json()
-		setItems(data)
-		setIsLoading(false)
-	}
+	// const fetchData = async () => {
+	// 	const response = await fetch('items')
+	// 	const data = await response.json()
+	// 	setItems(data)
+	// 	setIsLoading(false)
+	// }
 
 	const [cardEdit, setCardEdit] = useState({
 		item: {},
@@ -104,7 +137,7 @@ export const CardProvider = ({ children }) => {
 				cardEdit,
 				updateCard,
 				updateBucket,
-				isLoading,
+				// isLoading,
 			}}
 		>
 			{children}
